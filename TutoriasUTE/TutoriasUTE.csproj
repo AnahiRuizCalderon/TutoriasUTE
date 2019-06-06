@@ -45,6 +45,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -130,6 +136,24 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Administrator.cs" />
+    <Compile Include="Models\Career.cs" />
+    <Compile Include="Models\ClassGroup.cs" />
+    <Compile Include="Models\ClassGroupCourse.cs" />
+    <Compile Include="Models\ClassGroupStudent.cs" />
+    <Compile Include="Models\Course.cs" />
+    <Compile Include="Models\Log.cs" />
+    <Compile Include="Models\Modality.cs" />
+    <Compile Include="Models\Reminder.cs" />
+    <Compile Include="Models\Role.cs" />
+    <Compile Include="Models\Situation.cs" />
+    <Compile Include="Models\Student.cs" />
+    <Compile Include="Models\StudentCourseComment.cs" />
+    <Compile Include="Models\StudentCourseGrade.cs" />
+    <Compile Include="Models\Teacher.cs" />
+    <Compile Include="Models\TeacherRole.cs" />
+    <Compile Include="Models\Turn.cs" />
+    <Compile Include="Models\TutoriasUTEDbContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -171,7 +195,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
