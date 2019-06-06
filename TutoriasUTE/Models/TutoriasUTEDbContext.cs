@@ -13,7 +13,7 @@ namespace TutoriasUTE.Models
     public class TutoriasUTEDbContext : DbContext
     {
 
-        public TutoriasUTEDbContext() : base("TutoriasDbContext")
+        public TutoriasUTEDbContext() : base("TutoriasUTEDbContext")
         {
             //Constructor vacio
             //La cadena de conexion se llamara...
