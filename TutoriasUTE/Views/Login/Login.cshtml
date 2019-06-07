@@ -1,0 +1,46 @@
+﻿@model TutoriasUTE.ViewModels.LoginViewModel
+
+
+@{
+    ViewBag.Title = "Login";
+}
+
+
+@using (Html.BeginForm("Login", "Login", FormMethod.Post))
+{
+    <fieldset>
+
+
+        <legend class="login" align="center">Sign In</legend>
+
+
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+        @if (@ViewBag.Message != null)
+        {
+            <div style="border: 1px solid red">
+                @ViewBag.Message
+            </div>
+        }
+
+        <div align="center">
+
+            @Html.LabelFor(a => a.UserName)
+            @Html.ValidationMessageFor(a => a.UserName, "", new { @class = "text-danger" })
+            @Html.TextBoxFor(a => a.UserName, new { @class = "form-control" })
+
+            <br />
+
+            @Html.LabelFor(a => a.UserPassword)
+            @Html.ValidationMessageFor(a => a.UserPassword, "", new { @class = "text-danger" })
+            @Html.PasswordFor(a => a.UserPassword, new { @class = "form-control" })
+
+            <br />
+
+            <button type="submit" style="height:50px; width:200px;"> Entrar </button>
+
+        </div>
+
+    </fieldset>
+}
+

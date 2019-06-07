@@ -1,0 +1,29 @@
+﻿
+@{
+    ViewBag.Title = "Inicio";
+}
+
+<center>
+
+    <table>
+        <tr>
+            <td colspan="2">
+                <h1>TutoriasUTE</h1>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <h3>ADMINISTRADOR</h3>
+            </td>
+        </tr>
+        <tr>
+            <td><button onclick="location.href='@Url.Action("Inicio", "MainPage")'" style="height:50px; width:200px;"> Inicio </button></td>
+            <td><button onclick="location.href='@Url.Action("Salir", "MainPage")'" style="height:50px; width:200px;"> Salir </button></td>
+        </tr>
+    </table>
+
+</center>
+
+<br />
+<hr />
+<button onclick="location.href='@Url.Action("Maestros", "Maestros")'" style="height:50px; width:200px;"> Maestros </button>
