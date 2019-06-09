@@ -19,15 +19,15 @@ namespace TutoriasUTE.Models
         public string EmployeeID { get; set; }
 
         [Required(ErrorMessage = "El campo FirstMidName es obligatorio")]
-        [StringLength(25, ErrorMessage = "La longitud es de 25 caracteres")]
+        [StringLength(30, ErrorMessage = "La longitud es de 30 caracteres")]
         public string FirstMidName { get; set; }
 
         [Required(ErrorMessage = "El campo LastNameP es obligatorio")]
-        [StringLength(20, ErrorMessage = "La longitud es de 20 caracteres")]
+        [StringLength(25, ErrorMessage = "La longitud es de 25 caracteres")]
         public string LastNameP { get; set; }
 
         [Required(ErrorMessage = "El campo LastNameM es obligatorio")]
-        [StringLength(20, ErrorMessage = "La longitud es de 20 caracteres")]
+        [StringLength(25, ErrorMessage = "La longitud es de 25 caracteres")]
         public string LastNameM { get; set; }
 
         [Required(ErrorMessage = "El campo UserName es obligatorio")]
