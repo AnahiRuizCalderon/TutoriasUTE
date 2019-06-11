@@ -1,0 +1,50 @@
+﻿
+@model List<TutoriasUTE.ViewModels.GruposCrearMateriasViewModel>
+@{
+    ViewBag.Title = "AgregarMaterias";
+}
+
+@using (Html.BeginForm("AgregarMaterias", "Grupos", FormMethod.Post))
+{
+    <fieldset>
+
+
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+        @if (@ViewBag.Message != null)
+        {
+            <div style="border: 1px solid red">
+                @ViewBag.Message
+            </div>
+        }
+
+        <div align="center">
+
+            <h4>Agregar Materias</h4>
+
+            <table>
+                @for (int i = 0; i < Model.Count; i++)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(m => Model[i].Description)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(m => Model[i].Maestro)
+                        </td>
+                        <td>
+                            @Html.EditorFor(m => Model[i].isSelected, null, Model[i].ID)
+                        </td>
+                    </tr>
+
+                    @Html.HiddenFor(m => Model[i].GrupoID, Model[i].GrupoID)
+                    @Html.HiddenFor(m => Model[i].ID, Model[i].ID)
+                }
+            </table>
+
+            <button type="submit" style="height:50px; width:200px;"> Siguiente </button>
+
+        </div>
+
+    </fieldset>
+}

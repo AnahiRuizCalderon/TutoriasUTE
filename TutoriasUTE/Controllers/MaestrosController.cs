@@ -125,6 +125,8 @@ namespace TutoriasUTE.Controllers
             string LastNameM = nuevoMaestro.LastNameM;
             string UserName = nuevoMaestro.UserName;
 
+            //un if que busque maestros con el id de empleado, si se encuentra uno que regrese al usuario a Maestros con un redirect to action
+
             //se crea un nuevo maestro
             Teacher maestro = new Teacher();
 

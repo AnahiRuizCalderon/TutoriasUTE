@@ -1,0 +1,62 @@
+﻿@model IEnumerable<TutoriasUTE.ViewModels.GruposViewModel>
+
+
+@{
+    ViewBag.Title = "Grupos";
+}
+
+<center>
+
+    <table>
+        <tr>
+            <td colspan="2">
+                <h1>TutoriasUTE</h1>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <h3>ADMINISTRADOR</h3>
+            </td>
+        </tr>
+        <tr>
+            <td><button onclick="location.href='@Url.Action("Inicio", "MainPage")'" style="height:50px; width:200px;"> Inicio </button></td>
+            <td><button onclick="location.href='@Url.Action("Salir", "MainPage")'" style="height:50px; width:200px;"> Salir </button></td>
+        </tr>
+    </table>
+
+    <hr />
+
+    <h2>@ViewBag.Title</h2>
+    <hr />
+
+    <button onclick="location.href='@Url.Action("CrearGrupo", "Grupos")'" style="height:50px; width:200px;"> Crear Grupo </button>
+    <hr />
+
+</center>
+
+<table>
+    <thead>
+        <tr>
+            <td>Grupo</td>
+            <td>Tutor</td>
+            <td></td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var grupo in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(g => grupo.GroupID)
+                </td>
+                <td>
+                    @Html.DisplayFor(g => grupo.Tutor)
+                </td>
+                <td>
+                    <button style="height:30px; width:60px;" onclick="location.href='@Html.Raw(Url.Action("VerGrupo", "Grupos", new { ID = grupo.ID }))'">Ver</button>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+

@@ -14,8 +14,9 @@ namespace TutoriasUTE.Models
         [Key]
         public int ID { get; set; }
 
+        //cambiado
         [Required(ErrorMessage = "El campo GroupID es obligatorio")]
-        [StringLength(40, ErrorMessage = "La longitud es de maximo 40 caracteres")]
+        [StringLength(45, ErrorMessage = "La longitud es de maximo 40 caracteres")]
         public string GroupID { get; set; }
 
         [ForeignKey("Career")]

@@ -1,0 +1,114 @@
+﻿@model TutoriasUTE.ViewModels.MateriasCommonViewModel
+
+@{
+    ViewBag.Title = "Materias";
+}
+
+<center>
+
+    <table>
+        <tr>
+            <td colspan="2">
+                <h1>TutoriasUTE</h1>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <h3>ADMINISTRADOR</h3>
+            </td>
+        </tr>
+        <tr>
+            <td><button onclick="location.href='@Url.Action("Inicio", "MainPage")'" style="height:50px; width:200px;"> Inicio </button></td>
+            <td><button onclick="location.href='@Url.Action("Salir", "MainPage")'" style="height:50px; width:200px;"> Salir </button></td>
+        </tr>
+    </table>
+
+    <hr />
+
+    <h2>@ViewBag.Title</h2>
+    <hr />
+
+    <h5 style="color:red">WARNING: no se verifica que el ID de empleado exista</h5>
+    <h5 style="color:red">WARNING: al borrar no verifica que la materia no esté en uso</h5>
+    <hr />
+
+</center>
+
+@using (Html.BeginForm("Materias", "Materias", FormMethod.Post))
+{
+    <fieldset>
+
+
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+        @if (@ViewBag.Message != null)
+        {
+            <div style="border: 1px solid red">
+                @ViewBag.Message
+            </div>
+        }
+
+            <div align="center">
+
+                <h4>Crear Asignatura</h4>
+                @Html.LabelFor(m => m.MateriasCreateVM.Description)
+                @Html.ValidationMessageFor(m => m.MateriasCreateVM.Description, "", new { @class = "text-danger" })
+                @Html.TextBoxFor(m => m.MateriasCreateVM.Description, new { @class = "form-control" })
+                <br />
+
+                @Html.LabelFor(m => m.MateriasCreateVM.EmployeeID)
+                @Html.ValidationMessageFor(m => m.MateriasCreateVM.EmployeeID, "", new { @class = "text-danger" })
+                @Html.TextBoxFor(m => m.MateriasCreateVM.EmployeeID, new { @class = "form-control" })
+                <br />
+
+                @Html.LabelFor(m => m.MateriasCreateVM.Units)
+                @Html.ValidationMessageFor(m => m.MateriasCreateVM.Units, "", new { @class = "text-danger" })
+                @Html.TextBoxFor(m => m.MateriasCreateVM.Units, new { @class = "form-control" })
+                <br />
+
+
+                <button type="submit" style="height:50px; width:200px;"> Guardar </button>
+
+            </div>
+
+    </fieldset>
+}
+
+    <div align="center">
+        <h4>Maestros</h4>
+
+        <table>
+            <thead>
+                <tr>
+                    <td>
+                        Asignatura
+                    </td>
+                    <td>
+                        Docente
+                    </td>
+                    <td>
+                        Unidades
+                    </td>
+                    <td></td>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var materia in Model.MateriasResultVM.Materias)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => materia.Description)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => materia.Teacher)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => materia.Units)
+                        </td>
+                        <td><button onclick="location.href='@Html.Raw(Url.Action("EliminarMateria", "Materias", new { MateriaID = materia.MateriaID }))'" style="height:10px; width:10px;"> </button></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+    </div>

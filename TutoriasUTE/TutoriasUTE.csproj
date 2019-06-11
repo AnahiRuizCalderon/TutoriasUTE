@@ -132,9 +132,12 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\GruposController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\MaestrosController.cs" />
     <Compile Include="Controllers\MainPageController.cs" />
+    <Compile Include="Controllers\MateriasController.cs" />
+    <Compile Include="Controllers\RecordatoriosController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -162,11 +165,31 @@
     <Compile Include="Models\Turn.cs" />
     <Compile Include="Models\TutoriasUTEDbContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\GruposCrearAlumnosCommonViewModel.cs" />
+    <Compile Include="ViewModels\GruposCrearAlumnosCreateViewModel.cs" />
+    <Compile Include="ViewModels\GruposCrearAlumnosResultViewModel.cs" />
+    <Compile Include="ViewModels\GruposCrearAlumnosViewModel.cs" />
+    <Compile Include="ViewModels\GruposCrearMateriasViewModel.cs" />
+    <Compile Include="ViewModels\GruposCrearTutorViewModel.cs" />
+    <Compile Include="ViewModels\GruposCrearViewModel.cs" />
+    <Compile Include="ViewModels\GruposVerAlumnosViewModel.cs" />
+    <Compile Include="ViewModels\GruposVerCommonViewModel.cs" />
+    <Compile Include="ViewModels\GruposVerGrupoViewModel.cs" />
+    <Compile Include="ViewModels\GruposVerMateriasViewModel.cs" />
+    <Compile Include="ViewModels\GruposViewModel.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="ViewModels\MaestrosCommonViewModel.cs" />
     <Compile Include="ViewModels\MaestrosCreateViewModel.cs" />
     <Compile Include="ViewModels\MaestrosResultViewModel.cs" />
     <Compile Include="ViewModels\MaestrosViewModel.cs" />
+    <Compile Include="ViewModels\MateriasCommonViewModel.cs" />
+    <Compile Include="ViewModels\MateriasCreateViewModel.cs" />
+    <Compile Include="ViewModels\MateriasResultViewModel.cs" />
+    <Compile Include="ViewModels\MateriasViewModel.cs" />
+    <Compile Include="ViewModels\RecordatoriosCommonViewModel.cs" />
+    <Compile Include="ViewModels\RecordatoriosCreateViewModel.cs" />
+    <Compile Include="ViewModels\RecordatoriosResultViewModel.cs" />
+    <Compile Include="ViewModels\RecordatoriosViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
@@ -202,8 +225,15 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Login\Login.cshtml" />
-    <Content Include="Views\MainPage\Inicio.cshtml" />
     <Content Include="Views\Maestros\Maestros.cshtml" />
+    <Content Include="Views\Grupos\AgregarAlumnos.cshtml" />
+    <Content Include="Views\Grupos\AgregarMaterias.cshtml" />
+    <Content Include="Views\Grupos\CrearGrupo.cshtml" />
+    <Content Include="Views\Grupos\Grupos.cshtml" />
+    <Content Include="Views\Grupos\VerGrupo.cshtml" />
+    <Content Include="Views\Materias\Materias.cshtml" />
+    <Content Include="Views\Recordatorios\Recordatorios.cshtml" />
+    <Content Include="Views\MainPage\Inicio.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
