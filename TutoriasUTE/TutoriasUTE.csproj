@@ -132,6 +132,17 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Areas\Api\ApiAreaRegistration.cs" />
+    <Compile Include="Areas\Api\Controllers\AndroidLoginController.cs" />
+    <Compile Include="Areas\Api\Controllers\AndroidMaestrosController.cs" />
+    <Compile Include="Areas\Api\Models\AndroidAlumnos.cs" />
+    <Compile Include="Areas\Api\Models\AndroidAlumnosManager.cs" />
+    <Compile Include="Areas\Api\Models\AndroidCalificaciones.cs" />
+    <Compile Include="Areas\Api\Models\AndroidCalificacionesManager.cs" />
+    <Compile Include="Areas\Api\Models\AndroidLogin.cs" />
+    <Compile Include="Areas\Api\Models\AndroidLoginManager.cs" />
+    <Compile Include="Areas\Api\Models\AndroidMateria.cs" />
+    <Compile Include="Areas\Api\Models\AndroidMateriasManager.cs" />
     <Compile Include="Controllers\GruposController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\MaestrosController.cs" />
@@ -202,6 +213,7 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Areas\Api\Views\web.config" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -237,6 +249,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\Api\Views\Shared\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
