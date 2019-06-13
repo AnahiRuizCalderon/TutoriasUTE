@@ -9,10 +9,12 @@ namespace TutoriasUTE.Areas.Api.Models
     public class AndroidLoginManager
     {
 
-        public static int isLoged(AndroidLogin login) {
+        public static List<AndroidLoginReturn> isLoged(AndroidLogin login) {
 
 
             TutoriasUTEDbContext dbCtx = new TutoriasUTEDbContext();
+
+            List<AndroidLoginReturn> loginRet = new List<AndroidLoginReturn>();
 
             //se busca si existe
             var queryLogin = (from t in dbCtx.Teachers
@@ -26,11 +28,17 @@ namespace TutoriasUTE.Areas.Api.Models
 
             if (queryLogin != null)
             {
-                return queryLogin.ID;
+                AndroidLoginReturn objLogin = new AndroidLoginReturn();
+                objLogin.MaestroID = queryLogin.ID;
+                loginRet.Add(objLogin);
+                return loginRet;
             }
             else
             {
-                return 0;
+                AndroidLoginReturn objLogin = new AndroidLoginReturn();
+                objLogin.MaestroID = 0;
+                loginRet.Add(objLogin);
+                return loginRet;
             }
 
         }
