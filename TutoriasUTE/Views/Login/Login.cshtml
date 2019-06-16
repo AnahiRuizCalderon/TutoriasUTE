@@ -2,45 +2,72 @@
 
 
 @{
+    ViewBag.Background = "/Imagenes/img/bg-masthead-32.jpg";
     ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_NewLayout.cshtml";
 }
 
 
-@using (Html.BeginForm("Login", "Login", FormMethod.Post))
-{
-    <fieldset>
+<center>
+    <br>
+    <br>
+    <h1 class="display-2 font-weight-bold">TutoríasUTE</h1>
+</center>
 
-
-        <legend class="login" align="center">Sign In</legend>
-
-
-        @Html.AntiForgeryToken()
-        @Html.ValidationSummary(true)
-        @if (@ViewBag.Message != null)
+<div style="width: 400px; margin: auto">
+    <center>
+        <br>
+        @using (Html.BeginForm("Login", "Login", FormMethod.Post))
         {
-            <div style="border: 1px solid red">
-                @ViewBag.Message
-            </div>
+            <fieldset>
+
+
+                <legend class="login" align="center">Login</legend>
+                <br />
+                <br />
+
+
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true)
+                @if (@ViewBag.Message != null)
+                {
+                    <div style="border: 1px solid red">
+                        @ViewBag.Message
+                    </div>
+                }
+
+                <div align="center">
+                    <div class="form-group">
+                        @Html.LabelFor(a => a.UserName)
+                        @Html.TextBoxFor(a => a.UserName, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(a => a.UserName, "", new { @class = "text-danger" })
+                    </div>
+
+
+                    <br />
+
+
+                    <div class="form-group">
+                        @Html.LabelFor(a => a.UserPassword)
+                        @Html.PasswordFor(a => a.UserPassword, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(a => a.UserPassword, "", new { @class = "text-danger" })
+                    </div>
+
+
+                    <br />
+
+                    <button type="submit" class="btn btn-defaul btn-success"> Entrar </button>
+
+                </div>
+
+            </fieldset>
         }
 
-        <div align="center">
+    </center>
+    <br>
 
-            @Html.LabelFor(a => a.UserName)
-            @Html.ValidationMessageFor(a => a.UserName, "", new { @class = "text-danger" })
-            @Html.TextBoxFor(a => a.UserName, new { @class = "form-control" })
+</div>
 
-            <br />
 
-            @Html.LabelFor(a => a.UserPassword)
-            @Html.ValidationMessageFor(a => a.UserPassword, "", new { @class = "text-danger" })
-            @Html.PasswordFor(a => a.UserPassword, new { @class = "form-control" })
 
-            <br />
-
-            <button type="submit" style="height:50px; width:200px;"> Entrar </button>
-
-        </div>
-
-    </fieldset>
-}
 

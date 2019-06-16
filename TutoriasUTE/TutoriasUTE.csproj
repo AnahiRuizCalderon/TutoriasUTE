@@ -1907,6 +1907,7 @@
     <Content Include="Views\Materias\Materias.cshtml" />
     <Content Include="Views\Recordatorios\Recordatorios.cshtml" />
     <Content Include="Views\MainPage\Inicio.cshtml" />
+    <Content Include="Views\Shared\_NewLayout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

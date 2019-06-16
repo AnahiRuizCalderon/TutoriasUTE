@@ -1,95 +1,96 @@
 ﻿@model TutoriasUTE.ViewModels.MateriasCommonViewModel
 
 @{
-    ViewBag.Title = "Materias";
+    ViewBag.Title = "Asignaturas";
+    ViewBag.Background = "/Imagenes/img/portfolio-55.jpg";
+    Layout = "~/Views/Shared/_NewLayout.cshtml";
 }
 
 <center>
-
+    <br />
+    <br />
+    <h1 class="mb-1">TutoriasUTE</h1>
+    <h3 class="mb-3">ADMINISTRADOR</h3>
     <table>
         <tr>
-            <td colspan="2">
-                <h1>TutoriasUTE</h1>
-            </td>
-        </tr>
-        <tr>
-            <td colspan="2">
-                <h3>ADMINISTRADOR</h3>
-            </td>
-        </tr>
-        <tr>
-            <td><button onclick="location.href='@Url.Action("Inicio", "MainPage")'" style="height:50px; width:200px;"> Inicio </button></td>
-            <td><button onclick="location.href='@Url.Action("Salir", "MainPage")'" style="height:50px; width:200px;"> Salir </button></td>
+            <td><button onclick="location.href='@Url.Action("Inicio", "MainPage")'" class="btn btn-xl btn-light mr-4"> Inicio </button></td>
+            <td><button onclick="location.href='@Url.Action("Salir", "MainPage")'" class="btn btn-success btn-xl js-scroll-trigger"> Salir </button></td>
         </tr>
     </table>
+    <br />
+    <br />
 
+    <h2 class="mb-3">@ViewBag.Title</h2>
     <hr />
-
-    <h2>@ViewBag.Title</h2>
-    <hr />
-
-    <h5 style="color:red">WARNING: no se verifica que el ID de empleado exista</h5>
-    <h5 style="color:red">WARNING: al borrar no verifica que la materia no esté en uso</h5>
+    <h6 style="color:red">WARNING: no se verifica que el ID de empleado exista</h6>
+    <h6 style="color:red">WARNING: al borrar no verifica que la materia no esté en uso</h6>
     <hr />
 
 </center>
+<br />
 
-@using (Html.BeginForm("Materias", "Materias", FormMethod.Post))
-{
-    <fieldset>
+<div style="width: 500px; margin: auto">
+    <center>
 
-
-        @Html.AntiForgeryToken()
-        @Html.ValidationSummary(true)
-        @if (@ViewBag.Message != null)
+        @using (Html.BeginForm("Materias", "Materias", FormMethod.Post))
         {
-            <div style="border: 1px solid red">
-                @ViewBag.Message
-            </div>
+            <fieldset>
+
+
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true)
+                @if (@ViewBag.Message != null)
+                {
+                    <div style="border: 1px solid red">
+                        @ViewBag.Message
+                    </div>
+                }
+
+                <div align="center">
+                    
+                    <br />
+
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.MateriasCreateVM.Description)
+                        @Html.TextBoxFor(m => m.MateriasCreateVM.Description, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.MateriasCreateVM.Description, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.MateriasCreateVM.EmployeeID)
+                        @Html.TextBoxFor(m => m.MateriasCreateVM.EmployeeID, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.MateriasCreateVM.EmployeeID, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.MateriasCreateVM.Units)
+                        @Html.TextBoxFor(m => m.MateriasCreateVM.Units, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.MateriasCreateVM.Units, "", new { @class = "text-danger" })
+                    </div>
+                    <br />
+                    <button type="submit" class="btn btn-success btn-default"> Guardar </button>
+
+                </div>
+
+            </fieldset>
         }
-
-            <div align="center">
-
-                <h4>Crear Asignatura</h4>
-                @Html.LabelFor(m => m.MateriasCreateVM.Description)
-                @Html.ValidationMessageFor(m => m.MateriasCreateVM.Description, "", new { @class = "text-danger" })
-                @Html.TextBoxFor(m => m.MateriasCreateVM.Description, new { @class = "form-control" })
-                <br />
-
-                @Html.LabelFor(m => m.MateriasCreateVM.EmployeeID)
-                @Html.ValidationMessageFor(m => m.MateriasCreateVM.EmployeeID, "", new { @class = "text-danger" })
-                @Html.TextBoxFor(m => m.MateriasCreateVM.EmployeeID, new { @class = "form-control" })
-                <br />
-
-                @Html.LabelFor(m => m.MateriasCreateVM.Units)
-                @Html.ValidationMessageFor(m => m.MateriasCreateVM.Units, "", new { @class = "text-danger" })
-                @Html.TextBoxFor(m => m.MateriasCreateVM.Units, new { @class = "form-control" })
-                <br />
+    </center>
+</div>
+<br />
+<br />
+<br />
 
 
-                <button type="submit" style="height:50px; width:200px;"> Guardar </button>
-
-            </div>
-
-    </fieldset>
-}
-
+<div action="" style="width: 600px; margin: auto">
     <div align="center">
         <h4>Maestros</h4>
+        <br />
 
-        <table>
+        <table class="table table-bordered">
             <thead>
                 <tr>
-                    <td>
-                        Asignatura
-                    </td>
-                    <td>
-                        Docente
-                    </td>
-                    <td>
-                        Unidades
-                    </td>
-                    <td></td>
+                    <th scope="col">Asignatura</th>
+                    <th scope="col">Docente</th>
+                    <th scope="col">Unidades</th>
+                    <th scope="col">Estatus</th>
                 </tr>
             </thead>
             <tbody>
@@ -105,10 +106,10 @@
                         <td>
                             @Html.DisplayFor(modelItem => materia.Units)
                         </td>
-                        <td><button onclick="location.href='@Html.Raw(Url.Action("EliminarMateria", "Materias", new { MateriaID = materia.MateriaID }))'" style="height:10px; width:10px;"> </button></td>
+                        <td><button onclick="location.href='@Html.Raw(Url.Action("EliminarMateria", "Materias", new { MateriaID = materia.MateriaID }))'" class="btn btn-danger btn-sm"> Eliminar</button></td>
                     </tr>
                 }
             </tbody>
         </table>
-
     </div>
+</div>
