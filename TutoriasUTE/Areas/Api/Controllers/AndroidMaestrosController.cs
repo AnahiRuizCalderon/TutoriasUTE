@@ -9,12 +9,12 @@ namespace TutoriasUTE.Areas.Api.Controllers
 {
     public class AndroidMaestrosController : Controller
     {
-        public JsonResult Materias(int MaestroID)
+        public JsonResult Materias(string code, int MaestroID)
         {
             return Json(AndroidMateriasManager.Materias(MaestroID), JsonRequestBehavior.AllowGet);
         }
 
-        public JsonResult Alumnos(int GrupoID)
+        public JsonResult Alumnos(string code, int GrupoID)
         {
             return Json(AndroidAlumnosManager.Alumnos(GrupoID), JsonRequestBehavior.AllowGet);
         }
