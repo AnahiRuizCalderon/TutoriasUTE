@@ -135,15 +135,13 @@
     <Compile Include="Areas\Api\ApiAreaRegistration.cs" />
     <Compile Include="Areas\Api\Controllers\AndroidLoginController.cs" />
     <Compile Include="Areas\Api\Controllers\AndroidMaestrosController.cs" />
-    <Compile Include="Areas\Api\Models\AndroidAlumnos.cs" />
-    <Compile Include="Areas\Api\Models\AndroidAlumnosManager.cs" />
-    <Compile Include="Areas\Api\Models\AndroidCalificaciones.cs" />
-    <Compile Include="Areas\Api\Models\AndroidCalificacionesManager.cs" />
+    <Compile Include="Areas\Api\Controllers\AndroidTutoresController.cs" />
     <Compile Include="Areas\Api\Models\AndroidLogin.cs" />
     <Compile Include="Areas\Api\Models\AndroidLoginManager.cs" />
     <Compile Include="Areas\Api\Models\AndroidLoginReturn.cs" />
     <Compile Include="Areas\Api\Models\AndroidMateria.cs" />
     <Compile Include="Areas\Api\Models\AndroidMateriasManager.cs" />
+    <Compile Include="Areas\Api\Models\AndroidMateriaT.cs" />
     <Compile Include="Controllers\GruposController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\MaestrosController.cs" />

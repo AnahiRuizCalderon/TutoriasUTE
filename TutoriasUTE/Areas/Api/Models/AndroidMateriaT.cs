@@ -5,14 +5,12 @@ using System.Web;
 
 namespace TutoriasUTE.Areas.Api.Models
 {
-    public class AndroidCalificaciones
+    public class AndroidMateriaT
     {
-        public int AlumnoID { get; set; }
-
         public int MateriaID { get; set; }
 
-        public int Unidad { get; set; }
+        public string MateriaDesc { get; set; }
 
-        public string Calificacion { get; set; }
+        public string Instructor { get; set; }
     }
 }

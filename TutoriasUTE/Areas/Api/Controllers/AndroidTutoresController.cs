@@ -7,11 +7,11 @@ using TutoriasUTE.Areas.Api.Models;
 
 namespace TutoriasUTE.Areas.Api.Controllers
 {
-    public class AndroidMaestrosController : Controller
+    public class AndroidTutoresController : Controller
     {
         public JsonResult Materias(string code, int MaestroID)
         {
-            return Json(AndroidMateriasManager.MateriasMaestro(MaestroID), JsonRequestBehavior.AllowGet);
+            return Json(AndroidMateriasManager.MateriasTutor(MaestroID), JsonRequestBehavior.AllowGet);
         }
     }
 }

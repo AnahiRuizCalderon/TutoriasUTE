@@ -8,7 +8,7 @@ namespace TutoriasUTE.Areas.Api.Models
 {
     public class AndroidMateriasManager
     {
-        public static List<AndroidMateria> Materias(int MaestroID)
+        public static List<AndroidMateria> MateriasMaestro(int MaestroID)
         {
             TutoriasUTEDbContext dbCtx = new TutoriasUTEDbContext();
 
@@ -38,7 +38,7 @@ namespace TutoriasUTE.Areas.Api.Models
                                            }).ToList();
 
                 //se crean los objetos Android materia
-                foreach(var materiaInGroup in queryMateriaInGroup)
+                foreach (var materiaInGroup in queryMateriaInGroup)
                 {
                     AndroidMateria objMateria = new AndroidMateria();
 
@@ -53,6 +53,53 @@ namespace TutoriasUTE.Areas.Api.Models
                     materias.Add(objMateria);
                 }
             }
+
+            return materias;
+        }
+
+        public static List<AndroidMateriaT> MateriasTutor(int MaestroID)
+        {
+            TutoriasUTEDbContext dbCtx = new TutoriasUTEDbContext();
+
+            List<AndroidMateriaT> materias = new List<AndroidMateriaT>();
+
+            //obtener todas las materias que imparte el maestro
+            var queryGrupo = (from cg in dbCtx.ClassGroups
+                              where cg.TeacherID == MaestroID
+                              select new
+                              {
+                                  GroupID = cg.ID
+                              }).SingleOrDefault();
+
+            if (queryGrupo != null)
+            {
+                var queryMaterias = (from cgc in dbCtx.ClassGroupCourses
+                                     join c in dbCtx.Courses on cgc.CourseID equals c.ID
+                                     join t in dbCtx.Teachers on c.TeacherID equals t.ID
+                                     where cgc.ClassGroupID == queryGrupo.GroupID
+                                     select new
+                                     {
+                                         MateriaID = c.ID,
+                                         MateriaDesc = c.Description,
+                                         Instructor = t.LastNameP + " " + t.LastNameM + " " + t.FirstMidName
+                                     }).ToList();
+
+                //seleccionar las materias que estan en uso
+                foreach (var materia in queryMaterias)
+                {
+                    AndroidMateriaT objMateria = new AndroidMateriaT();
+
+                    //se agregan valores
+                    objMateria.MateriaID = materia.MateriaID;
+                    objMateria.MateriaDesc = materia.MateriaDesc;
+                    objMateria.Instructor = materia.Instructor;
+
+                    //se agrega 
+                    materias.Add(objMateria);
+                }
+            }
+
+
 
             return materias;
         }
