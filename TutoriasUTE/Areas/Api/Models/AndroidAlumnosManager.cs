@@ -106,22 +106,25 @@ namespace TutoriasUTE.Areas.Api.Models
                                    situation = st.Description
                                }).SingleOrDefault();
 
-            //se guarda el objto
-            AndroidAlumno alumnomodel = new AndroidAlumno();
+            if (queryAlumno != null)
+            {
+                //se guarda el objto
+                AndroidAlumno alumnomodel = new AndroidAlumno();
 
-            //se asignan los valores
-            alumnomodel.Registration = queryAlumno.registration;
-            alumnomodel.FirstMidName = queryAlumno.firstName;
-            alumnomodel.LastNameP = queryAlumno.lastNameP;
-            alumnomodel.LastNameM = queryAlumno.lastNameM;
-            alumnomodel.Telephone = queryAlumno.tel;
-            alumnomodel.EmergencyTelephone = queryAlumno.emTel;
-            alumnomodel.AcademicEmail = queryAlumno.academicEmail;
-            alumnomodel.Birthday = queryAlumno.birthdate;
-            alumnomodel.Situation = queryAlumno.situation;
+                //se asignan los valores
+                alumnomodel.Registration = queryAlumno.registration;
+                alumnomodel.FirstMidName = queryAlumno.firstName;
+                alumnomodel.LastNameP = queryAlumno.lastNameP;
+                alumnomodel.LastNameM = queryAlumno.lastNameM;
+                alumnomodel.Telephone = queryAlumno.tel;
+                alumnomodel.EmergencyTelephone = queryAlumno.emTel;
+                alumnomodel.AcademicEmail = queryAlumno.academicEmail;
+                alumnomodel.Birthday = queryAlumno.birthdate;
+                alumnomodel.Situation = queryAlumno.situation;
 
-            //se agrega a la lista
-            alumno.Add(alumnomodel);
+                //se agrega a la lista
+                alumno.Add(alumnomodel);
+            }
 
             return alumno;
         }
