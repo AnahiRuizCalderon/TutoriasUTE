@@ -136,6 +136,9 @@
     <Compile Include="Areas\Api\Controllers\AndroidLoginController.cs" />
     <Compile Include="Areas\Api\Controllers\AndroidMaestrosController.cs" />
     <Compile Include="Areas\Api\Controllers\AndroidTutoresController.cs" />
+    <Compile Include="Areas\Api\Models\AndroidAlumno.cs" />
+    <Compile Include="Areas\Api\Models\AndroidAlumnos.cs" />
+    <Compile Include="Areas\Api\Models\AndroidAlumnosManager.cs" />
     <Compile Include="Areas\Api\Models\AndroidLogin.cs" />
     <Compile Include="Areas\Api\Models\AndroidLoginManager.cs" />
     <Compile Include="Areas\Api\Models\AndroidLoginReturn.cs" />

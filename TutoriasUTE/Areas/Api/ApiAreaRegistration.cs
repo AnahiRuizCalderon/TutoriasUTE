@@ -33,12 +33,27 @@ namespace TutoriasUTE.Areas.Api
                 "Api/AndroidMaestros/Materias/{code}/{MaestroID}",
                 new { controller = "AndroidMaestros", action = "Materias", code = "", MaestroID = "" }
             );
+            context.MapRoute(
+                "AccesoAlumnosMaestro",
+                "Api/AndroidMaestros/Alumnos/{code}/{GrupoID}",
+                new { controller = "AndroidMaestros", action = "Alumnos", code = "", GrupoID = "" }
+            );
 
             //TUTOR
             context.MapRoute(
                 "AccesoMateriasTutor",
                 "Api/AndroidTutores/Materias/{code}/{MaestroID}",
                 new { controller = "AndroidTutores", action = "Materias", code = "", MaestroID = "" }
+            );
+            context.MapRoute(
+                "AccesoAlumnosTutor",
+                "Api/AndroidTutores/Alumnos/{code}/{MaestroID}",
+                new { controller = "AndroidTutores", action = "Alumnos", code = "", MaestroID = "" }
+            );
+            context.MapRoute(
+                "AccesoAlumnoIndividualTutor",
+                "Api/AndroidTutores/Alumno/{code}/{AlumnoID}",
+                new { controller = "AndroidTutores", action = "Alumno", code = "", AlumnoID = "" }
             );
         }
     }

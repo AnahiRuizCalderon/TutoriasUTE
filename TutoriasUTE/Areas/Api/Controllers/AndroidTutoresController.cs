@@ -13,5 +13,15 @@ namespace TutoriasUTE.Areas.Api.Controllers
         {
             return Json(AndroidMateriasManager.MateriasTutor(MaestroID), JsonRequestBehavior.AllowGet);
         }
+
+        public JsonResult Alumnos(string code, int MaestroID)
+        {
+            return Json(AndroidAlumnosManager.AlumnosTutor(MaestroID), JsonRequestBehavior.AllowGet);
+        }
+
+        public JsonResult Alumno(string code, int AlumnoID)
+        {
+            return Json(AndroidAlumnosManager.Alumno(AlumnoID), JsonRequestBehavior.AllowGet);
+        }
     }
 }
