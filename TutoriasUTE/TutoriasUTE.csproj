@@ -135,16 +135,29 @@
     <Compile Include="Areas\Api\ApiAreaRegistration.cs" />
     <Compile Include="Areas\Api\Controllers\AndroidLoginController.cs" />
     <Compile Include="Areas\Api\Controllers\AndroidMaestrosController.cs" />
+    <Compile Include="Areas\Api\Controllers\AndroidRecordatoriosController.cs" />
     <Compile Include="Areas\Api\Controllers\AndroidTutoresController.cs" />
     <Compile Include="Areas\Api\Models\AndroidAlumno.cs" />
     <Compile Include="Areas\Api\Models\AndroidAlumnos.cs" />
     <Compile Include="Areas\Api\Models\AndroidAlumnosManager.cs" />
+    <Compile Include="Areas\Api\Models\AndroidCalificaciones.cs" />
+    <Compile Include="Areas\Api\Models\AndroidCalificacionesAlumno.cs" />
+    <Compile Include="Areas\Api\Models\AndroidCalificacionesManager.cs" />
+    <Compile Include="Areas\Api\Models\AndroidCalificacionesReturn.cs" />
+    <Compile Include="Areas\Api\Models\AndroidCalificacionesUnidades.cs" />
+    <Compile Include="Areas\Api\Models\AndroidCalificacionesUnidadesUso.cs" />
+    <Compile Include="Areas\Api\Models\AndroidComentarios.cs" />
+    <Compile Include="Areas\Api\Models\AndroidComentariosAlumno.cs" />
+    <Compile Include="Areas\Api\Models\AndroidComentariosManager.cs" />
+    <Compile Include="Areas\Api\Models\AndroidComentariosReturn.cs" />
     <Compile Include="Areas\Api\Models\AndroidLogin.cs" />
     <Compile Include="Areas\Api\Models\AndroidLoginManager.cs" />
     <Compile Include="Areas\Api\Models\AndroidLoginReturn.cs" />
     <Compile Include="Areas\Api\Models\AndroidMateria.cs" />
     <Compile Include="Areas\Api\Models\AndroidMateriasManager.cs" />
     <Compile Include="Areas\Api\Models\AndroidMateriaT.cs" />
+    <Compile Include="Areas\Api\Models\AndroidRecordatorios.cs" />
+    <Compile Include="Areas\Api\Models\AndroidRecordatoriosManager.cs" />
     <Compile Include="Controllers\GruposController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\MaestrosController.cs" />
@@ -157,6 +170,10 @@
     <Compile Include="Migrations\201906060239449_InitialCreate.cs" />
     <Compile Include="Migrations\201906060239449_InitialCreate.Designer.cs">
       <DependentUpon>201906060239449_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201906260057376_StudentCourseCommentFix.cs" />
+    <Compile Include="Migrations\201906260057376_StudentCourseCommentFix.Designer.cs">
+      <DependentUpon>201906260057376_StudentCourseCommentFix.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Administrator.cs" />
@@ -1930,6 +1947,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201906060239449_InitialCreate.resx">
       <DependentUpon>201906060239449_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201906260057376_StudentCourseCommentFix.resx">
+      <DependentUpon>201906260057376_StudentCourseCommentFix.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

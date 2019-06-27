@@ -38,6 +38,36 @@ namespace TutoriasUTE.Areas.Api
                 "Api/AndroidMaestros/Alumnos/{code}/{GrupoID}",
                 new { controller = "AndroidMaestros", action = "Alumnos", code = "", GrupoID = "" }
             );
+            context.MapRoute(
+                "AccesoSubirCalificacionMaestro",
+                "Api/AndroidMaestros/SubirCalificacion/{AlumnoID}/{MateriaID}/{Unidad}/{Calificacion}",
+                new { controller = "AndroidMaestros", action = "SubirCalificacion", AlumnoID = "", MateriaID = "", Unidad = "", Calificacion = "" }
+            );
+            context.MapRoute(
+                "AccesoSubirComentarioMaestro",
+                "Api/AndroidMaestros/SubirComentario/{AlumnoID}/{MateriaID}/{Comentario}",
+                new { controller = "AndroidMaestros", action = "SubirComentario", AlumnoID = "", MateriaID = "", Comentario = "" }
+            );
+            context.MapRoute(
+                "AccesoUnidadesMaestro",
+                "Api/AndroidMaestros/Unidades/{code}/{MateriaID}",
+                new { controller = "AndroidMaestros", action = "Unidades", code = "", MateriaID = "" }
+            );
+            context.MapRoute(
+                "AccesoUnidadesUsoMaestro",
+                "Api/AndroidMaestros/UnidadesUso/{code}/{MateriaID}",
+                new { controller = "AndroidMaestros", action = "UnidadesUso", code = "", MateriaID = "" }
+            );
+            context.MapRoute(
+                "AccesoCalificacionesAlumnoMaestro",
+                "Api/AndroidMaestros/CalificacionesAlumno/{AlumnoID}/{MateriaID}",
+                new { controller = "AndroidMaestros", action = "CalificacionesAlumno", AlumnoID = "", MateriaID = "" }
+            );
+            context.MapRoute(
+                "AccesoComentariosAlumnoMaestro",
+                "Api/AndroidMaestros/ComentariosAlumno/{AlumnoID}/{MateriaID}",
+                new { controller = "AndroidMaestros", action = "ComentariosAlumno", AlumnoID = "", MateriaID = "" }
+            );
 
             //TUTOR
             context.MapRoute(
@@ -54,6 +84,23 @@ namespace TutoriasUTE.Areas.Api
                 "AccesoAlumnoIndividualTutor",
                 "Api/AndroidTutores/Alumno/{code}/{AlumnoID}",
                 new { controller = "AndroidTutores", action = "Alumno", code = "", AlumnoID = "" }
+            );
+            context.MapRoute(
+                "AccesoCalificacionesAlumnoTutor",
+                "Api/AndroidTutores/CalificacionesAlumno/{AlumnoID}/{MateriaID}",
+                new { controller = "AndroidTutores", action = "CalificacionesAlumno", AlumnoID = "", MateriaID = "" }
+            );
+            context.MapRoute(
+                "AccesoComentariosAlumnoTutor",
+                "Api/AndroidTutores/ComentariosAlumno/{AlumnoID}/{MateriaID}",
+                new { controller = "AndroidTutores", action = "ComentariosAlumno", AlumnoID = "", MateriaID = "" }
+            );
+
+            //RECORDATORIOS
+            context.MapRoute(
+                "AccesoRecordatorios",
+                "Api/AndroidRecordatorios/Recordatorios/{code}/{role}",
+                new { controller = "AndroidRecordatorios", action = "Recordatorios", code = "", role = "" }
             );
         }
     }

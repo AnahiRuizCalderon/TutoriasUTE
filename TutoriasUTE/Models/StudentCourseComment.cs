@@ -21,6 +21,7 @@ namespace TutoriasUTE.Models
         public int CourseID { get; set; }
         public Course Course { get; set; }
 
+        [Key, Column(Order = 2)]
         [Required(ErrorMessage = "El campo Date es obligatorio")]
         public DateTime Date { get; set; }
 
