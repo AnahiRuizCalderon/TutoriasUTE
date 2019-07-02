@@ -23,15 +23,55 @@ namespace TutoriasUTE.Areas.Api.Models
             newComment.Description = comentario.Comentario;
             newComment.Date = DateTime.Now;
 
-            //se agrega a la base de datos
-            dbCtx.StudentCourseComments.Add(newComment);
-            dbCtx.SaveChanges();
+            try
+            {
+                //se agrega a la base de datos
+                dbCtx.StudentCourseComments.Add(newComment);
+                dbCtx.SaveChanges();
 
-            //se regresa el objeto
-            AndroidComentariosReturn objCommentRet = new AndroidComentariosReturn();
-            objCommentRet.Status = true;
+                #region LOG
+                Log log = new Log();
 
-            commentRet.Add(objCommentRet);
+                //se le asignan los valores
+                log.Date = DateTime.Now;
+                log.Description = "Se subió comentario para alumno con ID: " + comentario.AlumnoID + ", de la materia con ID: " + comentario.MateriaID;
+
+                //se guarda en la base de datos
+                dbCtx.Logs.Add(log);
+                dbCtx.SaveChanges();
+
+                #endregion
+
+
+                //se regresa el objeto
+                AndroidComentariosReturn objCommentRet = new AndroidComentariosReturn();
+                objCommentRet.Status = true;
+
+                commentRet.Add(objCommentRet);
+
+
+            }
+            catch (Exception ex)
+            {
+                #region LOG
+                Log log = new Log();
+
+                //se le asignan los valores
+                log.Date = DateTime.Now;
+                log.Description = "Hubo un erro para alumno con ID: " + comentario.AlumnoID + ", de la materia con ID: " + comentario.MateriaID + " -" + ex.Message;
+
+                //se guarda en la base de datos
+                dbCtx.Logs.Add(log);
+                dbCtx.SaveChanges();
+
+                #endregion
+
+                //se regresa el objeto
+                AndroidComentariosReturn objCommentRet = new AndroidComentariosReturn();
+                objCommentRet.Status = false;
+
+                commentRet.Add(objCommentRet);
+            }
 
             return commentRet;
         }

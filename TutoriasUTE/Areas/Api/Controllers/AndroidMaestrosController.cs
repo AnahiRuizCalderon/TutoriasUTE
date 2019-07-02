@@ -42,12 +42,12 @@ namespace TutoriasUTE.Areas.Api.Controllers
             return Json(AndroidComentariosManager.SubirComentario(comentario), JsonRequestBehavior.AllowGet);
         }
 
-        public JsonResult Unidades(int MateriaID)
+        public JsonResult Unidades(string code, int MateriaID)
         {
             return Json(AndroidCalificacionesManager.Unidades(MateriaID), JsonRequestBehavior.AllowGet);
         }
 
-        public JsonResult UnidadesUso(int MateriaID)
+        public JsonResult UnidadesUso(string code, int MateriaID)
         {
             return Json(AndroidCalificacionesManager.UnidadesUso(MateriaID), JsonRequestBehavior.AllowGet);
         }

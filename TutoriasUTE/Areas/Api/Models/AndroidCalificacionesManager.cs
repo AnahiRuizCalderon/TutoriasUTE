@@ -25,28 +25,52 @@ namespace TutoriasUTE.Areas.Api.Models
             newGrade.Grade = calificacion.Calificacion;
             newGrade.Date = DateTime.Now;
 
-            //se agrega a la base de datos
-            dbCtx.StudentCourseGrades.Add(newGrade);
-            dbCtx.SaveChanges();
+            try
+            {
+                //se agrega a la base de datos
+                dbCtx.StudentCourseGrades.Add(newGrade);
+                dbCtx.SaveChanges();
 
-            #region LOG
-            Log log = new Log();
+                #region LOG
+                Log log = new Log();
 
-            //se le asignan los valores
-            log.Date = DateTime.Now;
-            log.Description = "Se subió comentario para alumno con ID: " + calificacion.AlumnoID + ", de la materia con ID: " + calificacion.MateriaID;
+                //se le asignan los valores
+                log.Date = DateTime.Now;
+                log.Description = "Se subió calificación para alumno con ID: " + calificacion.AlumnoID + ", de la materia con ID: " + calificacion.MateriaID;
 
-            //se guarda en la base de datos
-            dbCtx.Logs.Add(log);
-            dbCtx.SaveChanges();
+                //se guarda en la base de datos
+                dbCtx.Logs.Add(log);
+                dbCtx.SaveChanges();
 
-            #endregion
+                #endregion
 
-            //se regresa el objeto
-            AndroidCalificacionesReturn objCalifRet = new AndroidCalificacionesReturn();
-            objCalifRet.Status = true;
+                //se regresa el objeto
+                AndroidCalificacionesReturn objCalifRet = new AndroidCalificacionesReturn();
+                objCalifRet.Status = true;
 
-            califRet.Add(objCalifRet);
+                califRet.Add(objCalifRet);
+            }
+            catch (Exception ex)
+            {
+                #region LOG
+                Log log = new Log();
+
+                //se le asignan los valores
+                log.Date = DateTime.Now;
+                log.Description = "Hubo un erro para alumno con ID: " + calificacion.AlumnoID + ", de la materia con ID: " + calificacion.MateriaID + " -" + ex.Message;
+
+                //se guarda en la base de datos
+                dbCtx.Logs.Add(log);
+                dbCtx.SaveChanges();
+
+                #endregion
+
+                //se regresa el objeto
+                AndroidCalificacionesReturn objCalifRet = new AndroidCalificacionesReturn();
+                objCalifRet.Status = false;
+
+                califRet.Add(objCalifRet);
+            }
 
             return califRet;
         }
