@@ -93,7 +93,7 @@ namespace TutoriasUTE.Controllers
 
                 var queryTutor = (from tr in dbCtx.TeacherRoles
                                   where tr.TeacherID == m.ID && tr.RoleID == 2
-                                  select tr);
+                                  select tr).SingleOrDefault();
 
                 //se almacena si es tutor o no
                 if(queryTutor != null)

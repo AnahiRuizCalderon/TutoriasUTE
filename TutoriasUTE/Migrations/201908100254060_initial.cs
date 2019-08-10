@@ -3,7 +3,7 @@ namespace TutoriasUTE.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class InitialCreate : DbMigration
+    public partial class initial : DbMigration
     {
         public override void Up()
         {
@@ -32,7 +32,7 @@ namespace TutoriasUTE.Migrations
                 c => new
                     {
                         ID = c.Int(nullable: false, identity: true),
-                        GroupID = c.String(nullable: false, maxLength: 20),
+                        GroupID = c.String(nullable: false, maxLength: 45),
                         CareerID = c.Int(nullable: false),
                         Term = c.Int(nullable: false),
                         Section = c.String(nullable: false, maxLength: 2),
@@ -42,10 +42,10 @@ namespace TutoriasUTE.Migrations
                         TeacherID = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.ID)
-                .ForeignKey("dbo.Career", t => t.CareerID, cascadeDelete: true)
-                .ForeignKey("dbo.Modality", t => t.ModalityID, cascadeDelete: true)
-                .ForeignKey("dbo.Teacher", t => t.TeacherID, cascadeDelete: true)
-                .ForeignKey("dbo.Turn", t => t.TurnID, cascadeDelete: true)
+                .ForeignKey("dbo.Career", t => t.CareerID, cascadeDelete: false)
+                .ForeignKey("dbo.Modality", t => t.ModalityID, cascadeDelete: false)
+                .ForeignKey("dbo.Teacher", t => t.TeacherID, cascadeDelete: false)
+                .ForeignKey("dbo.Turn", t => t.TurnID, cascadeDelete: false)
                 .Index(t => t.CareerID)
                 .Index(t => t.ModalityID)
                 .Index(t => t.TurnID)
@@ -59,8 +59,8 @@ namespace TutoriasUTE.Migrations
                         CourseID = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => new { t.ClassGroupID, t.CourseID })
-                .ForeignKey("dbo.ClassGroup", t => t.ClassGroupID, cascadeDelete: true)
-                .ForeignKey("dbo.Course", t => t.CourseID, cascadeDelete: true)
+                .ForeignKey("dbo.ClassGroup", t => t.ClassGroupID, cascadeDelete: false)
+                .ForeignKey("dbo.Course", t => t.CourseID, cascadeDelete: false)
                 .Index(t => t.ClassGroupID)
                 .Index(t => t.CourseID);
             
@@ -86,9 +86,9 @@ namespace TutoriasUTE.Migrations
                         Date = c.DateTime(nullable: false),
                         Description = c.String(nullable: false, maxLength: 255),
                     })
-                .PrimaryKey(t => new { t.StudentID, t.CourseID })
-                .ForeignKey("dbo.Course", t => t.CourseID, cascadeDelete: true)
-                .ForeignKey("dbo.Student", t => t.StudentID, cascadeDelete: true)
+                .PrimaryKey(t => new { t.StudentID, t.CourseID, t.Date })
+                .ForeignKey("dbo.Course", t => t.CourseID, cascadeDelete: false)
+                .ForeignKey("dbo.Student", t => t.StudentID, cascadeDelete: false)
                 .Index(t => t.StudentID)
                 .Index(t => t.CourseID);
             
@@ -98,17 +98,17 @@ namespace TutoriasUTE.Migrations
                     {
                         ID = c.Int(nullable: false, identity: true),
                         Registration = c.String(nullable: false, maxLength: 15),
-                        FirstMidName = c.String(nullable: false, maxLength: 25),
-                        LastNameP = c.String(nullable: false, maxLength: 20),
-                        LastNameM = c.String(nullable: false, maxLength: 20),
+                        FirstMidName = c.String(nullable: false, maxLength: 35),
+                        LastNameP = c.String(nullable: false, maxLength: 30),
+                        LastNameM = c.String(nullable: false, maxLength: 30),
                         Telephone = c.String(maxLength: 20),
                         EmergencyTelephone = c.String(nullable: false, maxLength: 20),
-                        AcademicEmail = c.String(nullable: false, maxLength: 20),
+                        AcademicEmail = c.String(nullable: false, maxLength: 45),
                         Birthday = c.String(nullable: false, maxLength: 20),
                         SituationID = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.ID)
-                .ForeignKey("dbo.Situation", t => t.SituationID, cascadeDelete: true)
+                .ForeignKey("dbo.Situation", t => t.SituationID, cascadeDelete: false)
                 .Index(t => t.SituationID);
             
             CreateTable(
@@ -119,8 +119,8 @@ namespace TutoriasUTE.Migrations
                         StudentID = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => new { t.ClassGroupID, t.StudentID })
-                .ForeignKey("dbo.ClassGroup", t => t.ClassGroupID, cascadeDelete: true)
-                .ForeignKey("dbo.Student", t => t.StudentID, cascadeDelete: true)
+                .ForeignKey("dbo.ClassGroup", t => t.ClassGroupID, cascadeDelete: false)
+                .ForeignKey("dbo.Student", t => t.StudentID, cascadeDelete: false)
                 .Index(t => t.ClassGroupID)
                 .Index(t => t.StudentID);
             
@@ -144,8 +144,8 @@ namespace TutoriasUTE.Migrations
                         Grade = c.String(nullable: false, maxLength: 2),
                     })
                 .PrimaryKey(t => new { t.StudentID, t.CourseID, t.Unit })
-                .ForeignKey("dbo.Course", t => t.CourseID, cascadeDelete: true)
-                .ForeignKey("dbo.Student", t => t.StudentID, cascadeDelete: true)
+                .ForeignKey("dbo.Course", t => t.CourseID, cascadeDelete: false)
+                .ForeignKey("dbo.Student", t => t.StudentID, cascadeDelete: false)
                 .Index(t => t.StudentID)
                 .Index(t => t.CourseID);
             
@@ -155,10 +155,10 @@ namespace TutoriasUTE.Migrations
                     {
                         ID = c.Int(nullable: false, identity: true),
                         EmployeeID = c.String(nullable: false, maxLength: 8),
-                        FirstMidName = c.String(nullable: false, maxLength: 25),
-                        LastNameP = c.String(nullable: false, maxLength: 20),
-                        LastNameM = c.String(nullable: false, maxLength: 20),
-                        UserName = c.String(nullable: false, maxLength: 25),
+                        FirstMidName = c.String(nullable: false, maxLength: 35),
+                        LastNameP = c.String(nullable: false, maxLength: 30),
+                        LastNameM = c.String(nullable: false, maxLength: 30),
+                        UserName = c.String(nullable: false, maxLength: 30),
                         UserPassword = c.String(nullable: false, maxLength: 25),
                     })
                 .PrimaryKey(t => t.ID);
@@ -171,8 +171,8 @@ namespace TutoriasUTE.Migrations
                         RoleID = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => new { t.TeacherID, t.RoleID })
-                .ForeignKey("dbo.Role", t => t.RoleID, cascadeDelete: true)
-                .ForeignKey("dbo.Teacher", t => t.TeacherID, cascadeDelete: true)
+                .ForeignKey("dbo.Role", t => t.RoleID, cascadeDelete: false)
+                .ForeignKey("dbo.Teacher", t => t.TeacherID, cascadeDelete: false)
                 .Index(t => t.TeacherID)
                 .Index(t => t.RoleID);
             
@@ -196,7 +196,7 @@ namespace TutoriasUTE.Migrations
                         RoleID = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.ID)
-                .ForeignKey("dbo.Role", t => t.RoleID, cascadeDelete: true)
+                .ForeignKey("dbo.Role", t => t.RoleID, cascadeDelete: false)
                 .Index(t => t.RoleID);
             
             CreateTable(
